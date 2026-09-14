@@ -1,7 +1,11 @@
-export default function Log({ message }) {
+export default function Log({ turns }) {
     return (
-        <div className="log">
-            {message}
-        </div>
+        <ol id="log">
+            {turns.map((turn) => (
+                <li key={turn.square.row + '-' + turn.square.col}>
+                    {turn.player} selected square at row {turn.square.row}, column {turn.square.col}
+                </li>
+            ))}
+        </ol>
     );
 }
